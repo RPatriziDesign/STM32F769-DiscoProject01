@@ -1,5 +1,19 @@
 #include <gui/mainmenu_screen/MainMenuView.hpp>
 
+#include "main.h"
+#include "cmsis_os.h"
+#include "app_touchgfx.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "../mx25l512/mx25l512.h"
+#include "../otm8009a/otm8009a.h"
+
+
+
+extern UART_HandleTypeDef * huart1;
+
+
 MainMenuView::MainMenuView()
 {
 
@@ -13,4 +27,13 @@ void MainMenuView::setupScreen()
 void MainMenuView::tearDownScreen()
 {
     MainMenuViewBase::tearDownScreen();
+}
+
+
+void Res1Click()
+{
+	uint8_t msg[]="\nButton Pressed";
+	// Override and implement this function in MainMenu
+	//HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
+	HAL_UART_Transmit(huart1, msg, 16, 50);
 }

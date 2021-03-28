@@ -81,6 +81,13 @@
             },
             "ButtonStyles": [
               {
+                "Type": "IconButtonStyle",
+                "X": 22,
+                "Y": 52,
+                "IconReleased": "Ico.png",
+                "IconPressed": ""
+              },
+              {
                 "Type": "TextButtonStyle",
                 "X": 1,
                 "Y": 121,
@@ -96,13 +103,6 @@
                   "Green": 40,
                   "Blue": 40
                 }
-              },
-              {
-                "Type": "IconButtonStyle",
-                "X": 22,
-                "Y": 52,
-                "IconReleased": "Ico.png",
-                "IconPressed": ""
               },
               {
                 "Type": "ImageButtonStyle",

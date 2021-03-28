@@ -81,6 +81,8 @@ LTDC_HandleTypeDef hltdc;
 
 QSPI_HandleTypeDef hqspi;
 
+UART_HandleTypeDef huart1;
+
 SDRAM_HandleTypeDef hsdram1;
 
 /* Definitions for TouchGFXTask */
@@ -112,6 +114,7 @@ static void MX_FMC_Init(void);
 static void MX_QUADSPI_Init(void);
 static void MX_DMA2D_Init(void);
 void MX_I2C4_Init(void);
+static void MX_USART1_UART_Init(void);
 void TouchGFX_Task(void *argument);
 void Blink_Task(void *argument);
 
@@ -177,6 +180,7 @@ int main(void)
   MX_QUADSPI_Init();
   MX_DMA2D_Init();
   MX_I2C4_Init();
+  MX_USART1_UART_Init();
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
@@ -274,13 +278,15 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC|RCC_PERIPHCLK_I2C4;
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC|RCC_PERIPHCLK_USART1
+                              |RCC_PERIPHCLK_I2C4;
   PeriphClkInitStruct.PLLSAI.PLLSAIN = 384;
   PeriphClkInitStruct.PLLSAI.PLLSAIR = 7;
   PeriphClkInitStruct.PLLSAI.PLLSAIQ = 2;
   PeriphClkInitStruct.PLLSAI.PLLSAIP = RCC_PLLSAIP_DIV2;
   PeriphClkInitStruct.PLLSAIDivQ = 1;
   PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_2;
+  PeriphClkInitStruct.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
   PeriphClkInitStruct.I2c4ClockSelection = RCC_I2C4CLKSOURCE_PCLK1;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
@@ -688,6 +694,41 @@ static void MX_QUADSPI_Init(void)
   }
 
   /* USER CODE END QUADSPI_Init 2 */
+
+}
+
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
 
 }
 

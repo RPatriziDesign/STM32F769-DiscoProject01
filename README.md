@@ -19,7 +19,7 @@ Start and run a graphical application with low level services and peripherals up
 
 Low layer peripherals:
 ----------------------
- * Virtual Com Port for debug direct on USB ST-link connector
+ * Virtual Com Port for debug direct on USB ST-link connector. VCP_TX (PA9 ball E15), VCP_RX (PA10, ball D15)
  * UART 115200 8N1 interrupt mode Rx and Tx
  * Timer interrupt (should exist a timer tick each 1ms, if usable could be used)
  * GPIO blink a led periodically each 1second. PIN PJ13 (ball B9) and PJ15 (ball M14); Note theese PIN seems to be shared with Vsync_freq2 and render_time2
