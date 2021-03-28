@@ -90,6 +90,13 @@ const osThreadAttr_t TouchGFXTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
   .stack_size = 4096 * 4
 };
+/* Definitions for myTask02 */
+osThreadId_t myTask02Handle;
+const osThreadAttr_t myTask02_attributes = {
+  .name = "myTask02",
+  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 128 * 4
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -106,6 +113,7 @@ static void MX_QUADSPI_Init(void);
 static void MX_DMA2D_Init(void);
 void MX_I2C4_Init(void);
 void TouchGFX_Task(void *argument);
+void Blink_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command);
@@ -196,6 +204,9 @@ int main(void)
   /* Create the thread(s) */
   /* creation of TouchGFXTask */
   TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
+
+  /* creation of myTask02 */
+  myTask02Handle = osThreadNew(Blink_Task, NULL, &myTask02_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -745,6 +756,7 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOE_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOJ_CLK_ENABLE();
@@ -1428,6 +1440,25 @@ __weak void TouchGFX_Task(void *argument)
     osDelay(1);
   }
   /* USER CODE END 5 */
+}
+
+/* USER CODE BEGIN Header_Blink_Task */
+/**
+* @brief Function implementing the myTask02 thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Blink_Task */
+void Blink_Task(void *argument)
+{
+  /* USER CODE BEGIN Blink_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	HAL_GPIO_TogglePin(GPIOJ, (GPIO_PIN_5 | GPIO_PIN_13));
+    osDelay(500);
+  }
+  /* USER CODE END Blink_Task */
 }
 
 /* MPU Configuration */

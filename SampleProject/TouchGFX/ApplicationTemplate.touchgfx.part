@@ -14,7 +14,8 @@
         "Height": 480
       }
     ],
-    "PostGenerateTargetCommand" : "touchgfx update_project --project-file=../STM32F769I_DISCO.ioc --platform=m7"
+    "PostGenerateTargetCommand" : "touchgfx update_project --project-file=../STM32F769I_DISCO.ioc --platform=m7",
+    "Family" : "STM32F7"
   },
   "Version": "4.16.0"
 }

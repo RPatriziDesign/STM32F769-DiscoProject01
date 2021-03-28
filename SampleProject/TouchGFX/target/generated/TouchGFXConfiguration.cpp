@@ -4,7 +4,7 @@
 ******************************************************************************
 * @attention
 *
-* <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+* <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
 * All rights reserved.</center></h2>
 *
 * This software component is licensed by ST under Ultimate Liberty license
@@ -36,27 +36,33 @@ static TouchGFXHAL hal(dma, display, tc, 800, 480);
 
 void touchgfx_init()
 {
-    Bitmap::registerBitmapDatabase(BitmapDatabase::getInstance(), BitmapDatabase::getInstanceSize());
-    TypedText::registerTexts(&texts);
-    Texts::setLanguage(0);
+  Bitmap::registerBitmapDatabase(BitmapDatabase::getInstance(), BitmapDatabase::getInstanceSize());
+  TypedText::registerTexts(&texts);
+  Texts::setLanguage(0);
 
-    FontManager::setFontProvider(&fontProvider);
+  FontManager::setFontProvider(&fontProvider);
 
-    FrontendHeap& heap = FrontendHeap::getInstance();
-    (void)heap; // we need to obtain the reference above to initialize the frontend heap.
+  FrontendHeap& heap = FrontendHeap::getInstance();
+  /*
+   * we need to obtain the reference above to initialize the frontend heap.
+   */
+  (void)heap;
 
-    hal.initialize();
+  /*
+   * Initialize TouchGFX
+   */
+  hal.initialize();
 }
 
 void touchgfx_taskEntry()
 {
-    /*
-     * Main event loop. Will wait for VSYNC signal, and then process next frame. Call
-     * this function from your GUI task.
-     *
-     * Note This function never returns
-     */
-    hal.taskEntry();
+ /*
+  * Main event loop. Will wait for VSYNC signal, and then process next frame. Call
+  * this function from your GUI task.
+  *
+  * Note This function never returns
+  */
+  hal.taskEntry();
 }
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
