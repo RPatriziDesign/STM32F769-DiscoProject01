@@ -2,21 +2,220 @@
   "Application": {
     "Screens": [
       {
-        "Components": [],
-        "Interactions": [],
-        "Name": "Screen1",
+        "Components": [
+          {
+            "Type": "Image",
+            "RelativeFilename": "SampleSplash.png",
+            "Alpha": 255,
+            "Name": "SplashImg",
+            "X": 0,
+            "Y": 0,
+            "Width": 800,
+            "Height": 480,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ShowSplash",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerScreenEntered"
+            },
+            "Action": {
+              "Type": "ActionDelay",
+              "Duration": 1500
+            }
+          },
+          {
+            "InteractionName": "TransitionToMainMenu",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "ShowSplash"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "South",
+              "ActionComponent": "MainMenu"
+            }
+          }
+        ],
+        "Name": "Splash",
+        "OverrideDefaultBufferSize": false,
+        "CanvasBufferSize": 0
+      },
+      {
+        "Components": [
+          {
+            "Type": "Box",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 255,
+            "Name": "bckgnd",
+            "X": 0,
+            "Y": 0,
+            "Width": 800,
+            "Height": 480,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "FlexButton",
+            "Alpha": 255,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "TextButtonStyle",
+                "X": 1,
+                "Y": 121,
+                "TextId": "SingleUseId1",
+                "TextRotation": "0",
+                "ColorReleased": {
+                  "Red": 86,
+                  "Green": 7,
+                  "Blue": 7
+                },
+                "ColorPressed": {
+                  "Red": 161,
+                  "Green": 40,
+                  "Blue": 40
+                }
+              },
+              {
+                "Type": "IconButtonStyle",
+                "X": 22,
+                "Y": 52,
+                "IconReleased": "Ico.png",
+                "IconPressed": ""
+              },
+              {
+                "Type": "ImageButtonStyle",
+                "X": 0,
+                "Y": 0,
+                "LockFlexButtonToImageSize": false,
+                "ImageReleased": "Stato.png",
+                "ImagePressed": "Stato.png"
+              },
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "X": 0,
+                "Y": 6,
+                "Width": 140,
+                "Height": 146,
+                "LockToFlexButtonSize": false,
+                "BorderSize": 0,
+                "ColorReleased": {
+                  "Red": 160,
+                  "Green": 203,
+                  "Blue": 224
+                },
+                "ColorPressed": {
+                  "Red": 110,
+                  "Green": 219,
+                  "Blue": 255
+                },
+                "ColorBorderReleased": {
+                  "Red": 0,
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ],
+            "Name": "Resource1",
+            "X": 35,
+            "Y": 21,
+            "Width": 140,
+            "Height": 152,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "TextArea",
+            "TextId": "SingleUseId2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "MainMenuLbk",
+            "X": 334,
+            "Y": 224,
+            "Width": 132,
+            "Height": 33,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "TxBtn",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "Resource1"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "Res1Click"
+            }
+          }
+        ],
+        "Name": "MainMenu",
         "OverrideDefaultBufferSize": false,
         "CanvasBufferSize": 0
       }
     ],
     "CustomContainerDefinitions": [],
+    "TextEntries": [
+      {
+        "TextEntryId": "SingleUseId1",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId2",
+        "IsResource": false
+      }
+    ],
     "Name": "STM32F769I_DISCO",
     "Resolution": {
       "Width": 800,
       "Height": 480
     },
     "SelectedColorDepth": 16,
-    "StartupScreenName": "Screen1",
+    "StartupScreenName": "Splash",
     "SelectedStartupLanguage": "GB",
     "Skin": "Blue",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
