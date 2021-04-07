@@ -26,6 +26,11 @@ public:
         // Override and implement this function in MainMenu
     }
 
+    virtual void Res2Click()
+    {
+        // Override and implement this function in MainMenu
+    }
+
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
@@ -36,8 +41,9 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box bckgnd;
-    touchgfx::TextButtonStyle< touchgfx::IconButtonStyle< touchgfx::ImageButtonStyle< touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger > > > > Resource1;
+    touchgfx::IconButtonStyle< touchgfx::TextButtonStyle< touchgfx::BoxWithBorderButtonStyle< touchgfx::ImageButtonStyle< touchgfx::ClickButtonTrigger > > > > Resource1;
     touchgfx::TextArea MainMenuLbk;
+    touchgfx::IconButtonStyle< touchgfx::TextButtonStyle< touchgfx::BoxWithBorderButtonStyle< touchgfx::ImageButtonStyle< touchgfx::ClickButtonTrigger > > > > Resource2;
 
 private:
 

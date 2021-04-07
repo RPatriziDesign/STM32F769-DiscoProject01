@@ -85,7 +85,7 @@
                 "X": 22,
                 "Y": 52,
                 "IconReleased": "Ico.png",
-                "IconPressed": ""
+                "IconPressed": "Ico.png"
               },
               {
                 "Type": "TextButtonStyle",
@@ -105,41 +105,41 @@
                 }
               },
               {
+                "Type": "BoxWithBorderButtonStyle",
+                "X": 0,
+                "Y": 47,
+                "Width": 140,
+                "Height": 106,
+                "LockToFlexButtonSize": false,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 126,
+                  "Green": 192,
+                  "Blue": 224
+                },
+                "ColorPressed": {
+                  "Red": 133,
+                  "Green": 207,
+                  "Blue": 243
+                },
+                "ColorBorderReleased": {
+                  "Red": 41,
+                  "Green": 85,
+                  "Blue": 129
+                },
+                "ColorBorderPressed": {
+                  "Red": 58,
+                  "Green": 119,
+                  "Blue": 180
+                }
+              },
+              {
                 "Type": "ImageButtonStyle",
                 "X": 0,
                 "Y": 0,
                 "LockFlexButtonToImageSize": false,
                 "ImageReleased": "Stato.png",
                 "ImagePressed": "Stato.png"
-              },
-              {
-                "Type": "BoxWithBorderButtonStyle",
-                "X": 0,
-                "Y": 6,
-                "Width": 140,
-                "Height": 146,
-                "LockToFlexButtonSize": false,
-                "BorderSize": 0,
-                "ColorReleased": {
-                  "Red": 160,
-                  "Green": 203,
-                  "Blue": 224
-                },
-                "ColorPressed": {
-                  "Red": 110,
-                  "Green": 219,
-                  "Blue": 255
-                },
-                "ColorBorderReleased": {
-                  "Red": 0,
-                  "Green": 51,
-                  "Blue": 102
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 102,
-                  "Blue": 153
-                }
               }
             ],
             "Name": "Resource1",
@@ -177,11 +177,92 @@
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
+          },
+          {
+            "Type": "FlexButton",
+            "Alpha": 255,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 22,
+                "Y": 52,
+                "IconReleased": "Ico.png",
+                "IconPressed": "Ico.png"
+              },
+              {
+                "Type": "TextButtonStyle",
+                "X": 1,
+                "Y": 121,
+                "TextId": "SingleUseId3",
+                "TextRotation": "0",
+                "ColorReleased": {
+                  "Red": 86,
+                  "Green": 7,
+                  "Blue": 7
+                },
+                "ColorPressed": {
+                  "Red": 161,
+                  "Green": 40,
+                  "Blue": 40
+                }
+              },
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "X": 0,
+                "Y": 47,
+                "Width": 140,
+                "Height": 106,
+                "LockToFlexButtonSize": false,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 126,
+                  "Green": 192,
+                  "Blue": 224
+                },
+                "ColorPressed": {
+                  "Red": 133,
+                  "Green": 207,
+                  "Blue": 243
+                },
+                "ColorBorderReleased": {
+                  "Red": 41,
+                  "Green": 85,
+                  "Blue": 129
+                },
+                "ColorBorderPressed": {
+                  "Red": 58,
+                  "Green": 119,
+                  "Blue": 180
+                }
+              },
+              {
+                "Type": "ImageButtonStyle",
+                "X": 0,
+                "Y": 0,
+                "LockFlexButtonToImageSize": false,
+                "ImageReleased": "Stato.png",
+                "ImagePressed": "Stato.png"
+              }
+            ],
+            "Name": "Resource2",
+            "X": 222,
+            "Y": 21,
+            "Width": 140,
+            "Height": 152,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "TxBtn",
+            "InteractionName": "TxBtn1",
             "HasCompletedTrigger": false,
             "Trigger": {
               "Type": "TriggerClicked",
@@ -190,6 +271,18 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "Res1Click"
+            }
+          },
+          {
+            "InteractionName": "TxBtn2",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "Resource2"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "Res2Click"
             }
           }
         ],
@@ -206,6 +299,10 @@
       },
       {
         "TextEntryId": "SingleUseId2",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId3",
         "IsResource": false
       }
     ],

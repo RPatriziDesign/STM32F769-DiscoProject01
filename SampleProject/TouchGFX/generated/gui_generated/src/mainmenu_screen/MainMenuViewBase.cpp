@@ -16,15 +16,16 @@ MainMenuViewBase::MainMenuViewBase() :
     bckgnd.setPosition(0, 0, 800, 480);
     bckgnd.setColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
 
-    Resource1.setBoxWithBorderPosition(0, 6, 140, 146);
-    Resource1.setBorderSize(0);
-    Resource1.setBoxWithBorderColors(touchgfx::Color::getColorFrom24BitRGB(160, 203, 224), touchgfx::Color::getColorFrom24BitRGB(110, 219, 255), touchgfx::Color::getColorFrom24BitRGB(0, 51, 102), touchgfx::Color::getColorFrom24BitRGB(51, 102, 153));
     Resource1.setBitmaps(Bitmap(BITMAP_STATO_ID), Bitmap(BITMAP_STATO_ID));
     Resource1.setBitmapXY(0, 0);
-    Resource1.setIconXY(22, 52);
+    Resource1.setBoxWithBorderPosition(0, 47, 140, 106);
+    Resource1.setBorderSize(5);
+    Resource1.setBoxWithBorderColors(touchgfx::Color::getColorFrom24BitRGB(126, 192, 224), touchgfx::Color::getColorFrom24BitRGB(133, 207, 243), touchgfx::Color::getColorFrom24BitRGB(41, 85, 129), touchgfx::Color::getColorFrom24BitRGB(58, 119, 180));
     Resource1.setText(TypedText(T_SINGLEUSEID1));
     Resource1.setTextPosition(1, 121, 140, 152);
     Resource1.setTextColors(touchgfx::Color::getColorFrom24BitRGB(86, 7, 7), touchgfx::Color::getColorFrom24BitRGB(161, 40, 40));
+    Resource1.setIconBitmaps(Bitmap(BITMAP_ICO_ID), Bitmap(BITMAP_ICO_ID));
+    Resource1.setIconXY(22, 52);
     Resource1.setPosition(35, 21, 140, 152);
     Resource1.setAction(flexButtonCallback);
 
@@ -33,10 +34,24 @@ MainMenuViewBase::MainMenuViewBase() :
     MainMenuLbk.setLinespacing(0);
     MainMenuLbk.setTypedText(touchgfx::TypedText(T_SINGLEUSEID2));
 
+    Resource2.setBitmaps(Bitmap(BITMAP_STATO_ID), Bitmap(BITMAP_STATO_ID));
+    Resource2.setBitmapXY(0, 0);
+    Resource2.setBoxWithBorderPosition(0, 47, 140, 106);
+    Resource2.setBorderSize(5);
+    Resource2.setBoxWithBorderColors(touchgfx::Color::getColorFrom24BitRGB(126, 192, 224), touchgfx::Color::getColorFrom24BitRGB(133, 207, 243), touchgfx::Color::getColorFrom24BitRGB(41, 85, 129), touchgfx::Color::getColorFrom24BitRGB(58, 119, 180));
+    Resource2.setText(TypedText(T_SINGLEUSEID3));
+    Resource2.setTextPosition(1, 121, 140, 152);
+    Resource2.setTextColors(touchgfx::Color::getColorFrom24BitRGB(86, 7, 7), touchgfx::Color::getColorFrom24BitRGB(161, 40, 40));
+    Resource2.setIconBitmaps(Bitmap(BITMAP_ICO_ID), Bitmap(BITMAP_ICO_ID));
+    Resource2.setIconXY(22, 52);
+    Resource2.setPosition(222, 21, 140, 152);
+    Resource2.setAction(flexButtonCallback);
+
     add(__background);
     add(bckgnd);
     add(Resource1);
     add(MainMenuLbk);
+    add(Resource2);
 }
 
 void MainMenuViewBase::setupScreen()
@@ -48,9 +63,16 @@ void MainMenuViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonC
 {
     if (&src == &Resource1)
     {
-        //TxBtn
+        //TxBtn1
         //When Resource1 clicked call virtual function
         //Call Res1Click
         Res1Click();
+    }
+    else if (&src == &Resource2)
+    {
+        //TxBtn2
+        //When Resource2 clicked call virtual function
+        //Call Res2Click
+        Res2Click();
     }
 }

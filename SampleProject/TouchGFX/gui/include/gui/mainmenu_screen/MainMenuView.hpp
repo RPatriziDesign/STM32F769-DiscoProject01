@@ -11,6 +11,14 @@ public:
     virtual ~MainMenuView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+//    // Prova RP pressione del tasto:
+//    virtual void Res1Click()
+//	{
+//    	touchgfx_printf("\n Tasto Premuto";)
+//    }
+
+
 protected:
 };
 

@@ -32,7 +32,7 @@ void MainMenuView::tearDownScreen()
 
 void Res1Click()
 {
-	uint8_t msg[]="\nButton Pressed";
+//	uint8_t msg[]="\nButton Pressed";
 	// Override and implement this function in MainMenu
 	//HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
 	HAL_UART_Transmit(huart1, msg, 16, 50);
