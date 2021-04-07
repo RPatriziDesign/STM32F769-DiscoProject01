@@ -35,5 +35,12 @@ void Res1Click()
 //	uint8_t msg[]="\nButton Pressed";
 	// Override and implement this function in MainMenu
 	//HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
-	HAL_UART_Transmit(huart1, msg, 16, 50);
+//	HAL_UART_Transmit(huart1, msg, 16, 50);
+}
+
+// each button has same behavior different data, so implement just one function
+// and pass right data
+void MainMenuView::Res2Click()
+{
+    presenter->TxButton();
 }

@@ -13,6 +13,8 @@ public:
         modelListener = listener;
     }
 
+    void SwBtn_txTrigger(void);
+
     void tick();
 protected:
     ModelListener* modelListener;

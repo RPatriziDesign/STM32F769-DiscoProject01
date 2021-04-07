@@ -18,6 +18,8 @@ public:
 //    	touchgfx_printf("\n Tasto Premuto";)
 //    }
 
+    // Res2Click Function Override, implement in <pagename>View.cpp
+    void Res2Click();
 
 protected:
 };

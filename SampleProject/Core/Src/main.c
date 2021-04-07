@@ -101,6 +101,10 @@ const osThreadAttr_t myTask02_attributes = {
 };
 /* USER CODE BEGIN PV */
 
+	/** Messaggio di test per la UART */
+	uint8_t msg[]="\nButton Pressed";
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -117,6 +121,8 @@ void MX_I2C4_Init(void);
 static void MX_USART1_UART_Init(void);
 void TouchGFX_Task(void *argument);
 void Blink_Task(void *argument);
+
+void VCP_txMsg(void);
 
 /* USER CODE BEGIN PFP */
 static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command);
@@ -727,7 +733,7 @@ static void MX_USART1_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART1_Init 2 */
-
+  HAL_UART_Transmit(&huart1, "\nVCP OPEN", 10, 50 );
   /* USER CODE END USART1_Init 2 */
 
 }
@@ -847,6 +853,28 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+
+
+
+
+
+
+/**
+  * @brief  transmit a message to the VCP
+  * @param  None
+  * @retval None
+  */
+void VCP_txMsg(void)
+{
+	//HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
+	HAL_UART_Transmit(&huart1, msg, 16, 50);
+}
+
+
+
+
+
 /**
   * @brief  Perform the SDRAM external memory initialization sequence
   * @param  hsdram: SDRAM handle

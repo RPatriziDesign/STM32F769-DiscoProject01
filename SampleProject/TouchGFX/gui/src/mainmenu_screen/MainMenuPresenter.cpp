@@ -16,3 +16,8 @@ void MainMenuPresenter::deactivate()
 {
 
 }
+
+void MainMenuPresenter::TxButton()
+{
+	model->SwBtn_txTrigger();
+}
