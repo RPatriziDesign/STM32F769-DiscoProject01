@@ -15,19 +15,23 @@ Environment:          TouchGFX 4.16.0
 Goal
 ------
 Develop a basic running graphical application with low level services and peripherals up and running, also connected to graphic layer with touch.
-Comment and explain in GIT or readme files to understand what has been done
+Comment and explain in GIT or readme files to understand what has been done, this project should work as a step by step guide for newby or also for more skilled programmers.
 
-Low layer peripherals:
-----------------------
+Low layer peripherals to be implemented:
+----------------------------------------
  * Virtual Com Port UART1 for direct debug via USB ST-link connector. UART1 VCP_TX (PA9 ball E15), VCP_RX (PA10, ball D15)
  * UART 115200 8N1 interrupt mode Rx and Tx
  * Timer interrupt (should exist a timer tick each 1ms, if usable could be used)
  * GPIO blink a led periodically each 1second. PIN PJ13 (ball B9) and PJ15 (ball M14); Note theese PIN seems to be shared with Vsync_freq2 and render_time2
  * GPIO read a push button to open a menu or other functions connected to actual visualization.
- * GPIO read an external encoder and use in menu to increment or decrement visualized values.
+ * GPIO read an external _encoder_ and use in menu to increment or decrement visualized values.
  * Use PWM to control luminosity of an external LED
- * Use on board SPDIF TX and RX connectors to write to/read from.
- * Attach an external CODEC, Texas TLV320AIC3204, for stereo input and output.
+ * AUDIO
+    > Use on board SPDIF TX and RX connectors to write to/read from.
+    > Attach an external CODEC, Texas TLV320AIC3204, for stereo input and output.
+    > Read from onboard microphone
+    > Play from-to bluetooth link (an external bluetooth board to be founded)
+    > Exchange audio beetween peripherals as desired, for example Codec <=> SPIF, or Codec <=> Bluetooth or SPDIF <=> Bluetooth
 
 
 Menu:
@@ -40,3 +44,8 @@ Push physical button to enter menu or wake up display gone into low power mode a
 2.	Ico 2 change audio gain, slider or rotary encoder
 3.	Ico 3 open a display with a toggle, to activate or disactivate beep on main screen, beep should be added into audio to codec path.
 
+Done up to this version:
+------------------------
+* Starts a GUI.
+* Send a message from GUI
+* Receive a message and affect GUI
