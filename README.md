@@ -21,7 +21,7 @@ Low layer peripherals to be implemented:
 ----------------------------------------
  * Virtual Com Port UART1 for direct debug via USB ST-link connector. UART1 VCP_TX (PA9 ball E15), VCP_RX (PA10, ball D15)
  * UART 115200 8N1 interrupt mode Rx and Tx
- * Timer interrupt (should exist a timer tick each 1ms, if usable could be used)
+ * Timer interrupt (elementary unelegant blink led via dedicated task and os delay)
  * GPIO blink a led periodically each 1second. PIN PJ13 (ball B9) and PJ15 (ball M14); Note theese PIN seems to be shared with Vsync_freq2 and render_time2
  * GPIO read a push button to open a menu or other functions connected to actual visualization.
  * GPIO read an external _encoder_ and use in menu to increment or decrement visualized values.
@@ -48,4 +48,5 @@ Done up to this version:
 ------------------------
 * Starts a GUI.
 * Send a message from GUI
-* Receive a message and affect GUI
+* ERRATA: NEVER Received a message and affected GUI, even in previous versions.
+* Enabled PA0 as user button input, label "UserBtn", to be read in model::tick

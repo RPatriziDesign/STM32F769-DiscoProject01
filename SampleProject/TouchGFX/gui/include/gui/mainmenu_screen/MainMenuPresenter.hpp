@@ -29,8 +29,12 @@ public:
 
     virtual ~MainMenuPresenter() {};
 
+    virtual void UserBtn_changed();
+
 private:
     MainMenuPresenter();
+
+//    int buttonPressedFlag = 0;
 
     MainMenuView& view;
 };

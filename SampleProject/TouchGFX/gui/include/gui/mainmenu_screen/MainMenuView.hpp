@@ -12,6 +12,9 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
+    // Events from presenter
+    virtual void setUserBtn(int flag);
+
 //    // Prova RP pressione del tasto:
 //    virtual void Res1Click()
 //	{

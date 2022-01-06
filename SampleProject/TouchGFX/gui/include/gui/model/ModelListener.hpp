@@ -10,6 +10,8 @@ public:
     
     virtual ~ModelListener() {}
 
+    virtual void UserBtn_changed() {}
+
     void bind(Model* m)
     {
         model = m;

@@ -122,8 +122,6 @@ static void MX_USART1_UART_Init(void);
 void TouchGFX_Task(void *argument);
 void Blink_Task(void *argument);
 
-void VCP_txMsg(void);
-
 /* USER CODE BEGIN PFP */
 static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command);
 
@@ -842,6 +840,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : UserBtn_Pin */
+  GPIO_InitStruct.Pin = UserBtn_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(UserBtn_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : FRAMERATE_Pin */
   GPIO_InitStruct.Pin = FRAMERATE_Pin;

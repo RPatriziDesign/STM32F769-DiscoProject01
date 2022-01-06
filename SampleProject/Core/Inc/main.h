@@ -54,7 +54,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+void Blink_LED(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -68,6 +68,8 @@ void Error_Handler(void);
 #define VSYNC_FREQ_GPIO_Port GPIOC
 #define RENDER_TIME2_Pin GPIO_PIN_5
 #define RENDER_TIME2_GPIO_Port GPIOJ
+#define UserBtn_Pin GPIO_PIN_0
+#define UserBtn_GPIO_Port GPIOA
 #define FRAMERATE_Pin GPIO_PIN_1
 #define FRAMERATE_GPIO_Port GPIOJ
 /* USER CODE BEGIN Private defines */

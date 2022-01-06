@@ -29,6 +29,18 @@ void MainMenuView::tearDownScreen()
     MainMenuViewBase::tearDownScreen();
 }
 
+void MainMenuView::setUserBtn(int flag)
+{
+	if (flag)
+	{
+		Resource2.setAlpha(125);
+	}
+	else
+	{
+		Resource2.setAlpha(255);
+	}
+	Resource2.invalidate();
+}
 
 void Res1Click()
 {
