@@ -26,6 +26,9 @@
     <ClCompile Include="..\..\gui\src\splash_screen\SplashPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\splash_screen\SplashView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\splash_screen\SplashViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\settingsmenu_screen\SettingsMenuPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\settingsmenu_screen\SettingsMenuView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\settingsmenu_screen\SettingsMenuViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xlsx"/>
@@ -179,6 +182,9 @@
     <ClInclude Include="..\..\gui\include\gui\splash_screen\SplashPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\splash_screen\SplashView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\splash_screen\SplashViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\settingsmenu_screen\SettingsMenuPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\settingsmenu_screen\SettingsMenuView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\settingsmenu_screen\SettingsMenuViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

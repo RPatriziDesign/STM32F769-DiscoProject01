@@ -13,6 +13,8 @@
 #include <gui/splash_screen/SplashPresenter.hpp>
 #include <gui/mainmenu_screen/MainMenuView.hpp>
 #include <gui/mainmenu_screen/MainMenuPresenter.hpp>
+#include <gui/settingsmenu_screen/SettingsMenuView.hpp>
+#include <gui/settingsmenu_screen/SettingsMenuPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -55,4 +57,17 @@ void FrontendApplicationBase::gotoMainMenuScreenSlideTransitionSouth()
 void FrontendApplicationBase::gotoMainMenuScreenSlideTransitionSouthImpl()
 {
     touchgfx::makeTransition<MainMenuView, MainMenuPresenter, touchgfx::SlideTransition<SOUTH>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// SettingsMenu
+
+void FrontendApplicationBase::gotoSettingsMenuScreenSlideTransitionSouth()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoSettingsMenuScreenSlideTransitionSouthImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoSettingsMenuScreenSlideTransitionSouthImpl()
+{
+    touchgfx::makeTransition<SettingsMenuView, SettingsMenuPresenter, touchgfx::SlideTransition<SOUTH>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

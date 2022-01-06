@@ -21,6 +21,9 @@ public:
     // MainMenu
     void gotoMainMenuScreenSlideTransitionSouth();
 
+    // SettingsMenu
+    void gotoSettingsMenuScreenSlideTransitionSouth();
+
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
@@ -31,6 +34,9 @@ protected:
 
     // MainMenu
     void gotoMainMenuScreenSlideTransitionSouthImpl();
+
+    // SettingsMenu
+    void gotoSettingsMenuScreenSlideTransitionSouthImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

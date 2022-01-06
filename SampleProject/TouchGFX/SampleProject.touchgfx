@@ -289,6 +289,73 @@
         "Name": "MainMenu",
         "OverrideDefaultBufferSize": false,
         "CanvasBufferSize": 0
+      },
+      {
+        "Components": [
+          {
+            "Type": "Box",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 255,
+            "Name": "Background",
+            "X": 0,
+            "Y": 0,
+            "Width": 800,
+            "Height": 480,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "TextArea",
+            "TextId": "SingleUseId4",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "ScreenName",
+            "X": 329,
+            "Y": 228,
+            "Width": 143,
+            "Height": 25,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "JumpInto",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 0
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "South",
+              "ActionComponent": "SettingsMenu"
+            }
+          }
+        ],
+        "Name": "SettingsMenu",
+        "OverrideDefaultBufferSize": false,
+        "CanvasBufferSize": 0
       }
     ],
     "CustomContainerDefinitions": [],
@@ -303,6 +370,10 @@
       },
       {
         "TextEntryId": "SingleUseId3",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId4",
         "IsResource": false
       }
     ],

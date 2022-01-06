@@ -18,6 +18,8 @@
 #include <gui/splash_screen/SplashPresenter.hpp>
 #include <gui/mainmenu_screen/MainMenuView.hpp>
 #include <gui/mainmenu_screen/MainMenuPresenter.hpp>
+#include <gui/settingsmenu_screen/SettingsMenuView.hpp>
+#include <gui/settingsmenu_screen/SettingsMenuPresenter.hpp>
 
 
 /**
@@ -42,7 +44,8 @@ public:
      */
     typedef touchgfx::meta::TypeList< SplashView,
             touchgfx::meta::TypeList< MainMenuView,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< SettingsMenuView,
+            touchgfx::meta::Nil > >
             > GeneratedViewTypes;
 
     /**
@@ -56,7 +59,8 @@ public:
      */
     typedef touchgfx::meta::TypeList< SplashPresenter,
             touchgfx::meta::TypeList< MainMenuPresenter,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< SettingsMenuPresenter,
+            touchgfx::meta::Nil > >
             > GeneratedPresenterTypes;
 
     /**
