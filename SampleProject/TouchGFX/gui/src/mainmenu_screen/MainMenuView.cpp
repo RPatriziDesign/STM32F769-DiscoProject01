@@ -29,17 +29,13 @@ void MainMenuView::tearDownScreen()
     MainMenuViewBase::tearDownScreen();
 }
 
+
 void MainMenuView::setUserBtn(int flag)
 {
 	if (flag)
 	{
-		Resource2.setAlpha(125);
+		static_cast<FrontendApplication*>(Application::getInstance())->gotoSettingsMenuScreenSlideTransitionSouth();
 	}
-	else
-	{
-		Resource2.setAlpha(255);
-	}
-	Resource2.invalidate();
 }
 
 void Res1Click()
